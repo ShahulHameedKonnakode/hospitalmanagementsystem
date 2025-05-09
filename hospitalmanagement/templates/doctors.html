@@ -1,0 +1,25 @@
+{% extends 'admin_home.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container my-3 pb-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for d in doc %}
+        <div class="col">
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{d.doc_image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Dr. {{d.user_id.get_full_name}}</h5>
+                    <p class="card-text">{{d.doc_spec}}</p>
+                    <h5 class="card-title">{{d.dep_name}}</h5>
+                    <a href="{% url 'booking_admin' %}" class="btn btn-primary">Book Appointment</a>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

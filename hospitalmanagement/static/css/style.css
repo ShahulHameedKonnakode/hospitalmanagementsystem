@@ -1,0 +1,14 @@
+.navbar{
+    background-color: #00455e;
+}
+
+li:hover{
+    background-color: #09759d;
+}
+.dropdown-menu>li:hover{
+    background-color: #09759d;
+}
+
+.about_heading{
+    color: #5e000d;
+}

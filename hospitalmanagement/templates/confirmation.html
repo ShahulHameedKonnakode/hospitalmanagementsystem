@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+</head>
+
+<body>
+    {% include 'base.html' %}
+    {% load static %}
+    <div class="container-fluid text-bg-success mt-2 p-2 ">
+        <h1 class="text-center">Booking Confirmation</h1>
+    </div>
+    <div class="container w-50 my-5 p-2 text-center">
+        <img src="{% static '/images/tick_animation.gif' %}" alt="" >
+        <div class="alert alert-success" role="alert">
+            <p class="display-3">Your Booking is Successfull</p>
+        </div>
+    </div>
+    <div class="container w-50 my-5 p-2">
+        {% if last_entry %}
+        <div class="alert alert-info" role="alert">
+
+            
+            <p> Dear <strong>{{last_entry.p_name}}</strong></p>
+
+            <p> Thank you for booking an appointment with Dr. {{ last_entry.doc_name }} at <strong>MATERIAL PRO</strong>. <br> Your
+                appointment details are as follows:</p>
+
+            <span> 📅 Date:{{ last_entry.booking_date }}</span><br>
+            <span>⏰ Time: {{last_entry.booked_on}}</span> <br>
+        
+
+            <p>We look forward to seeing you!</p>
+
+            <p>Best Regards,<br>
+                📍<strong>MATERIAL PRO</strong> <br>
+                📞  Contact Number: 0123456789 <br>
+                Website :www.fah.com</p>
+
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+{% extends 'admin_home.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container my-3 pb-5">
+
+    <div class="card p-5">
+        <form action="add_doctors" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
+                <div class="col">
+                    <label for="" class="form-label">First Name</label>
+                    <input type="text" name="firstname" id="" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="" class="form-label">Last Name</label>
+                    <input type="text" name="lastname" id="" class="form-control">
+                </div>
+
+            </div>
+            <hr>
+            <div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
+                <div class="col">
+                    <label for="" class="form-label">Username</label>
+                    <input type="text" name="username" id="" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="" class="form-label">Password</label>
+                    <input type="password" name="password" id="" class="form-control">
+                </div>
+
+            </div>
+            <hr>
+            <div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
+                <div class="col">
+                    <label for="" class="form-label">Specialization</label>
+                    <input type="text" name="specialization" id="" class="form-control">
+                </div>
+
+                <div class="col">
+                    <label for="" class="col-sm-4 text-start control-label col-form-label">Select Department</label>
+                    <select name="dep_id" id="" class="form-control">
+                        <option value="" selected>Choose Role...</option>
+                        {% for i in departments %}
+                        <option value="{{i.id}}">{{i.dep_name}}</option>
+
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
+                <div class="col">
+                    <label for="" class="form-label">Email</label>
+                    <input type="email" name="email" id="" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="" class="col-sm-12 control-label col-form-label">Upload Photo</label>
+                    <input type="file" name="photo" id="" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="col-sm-12 mt-5 ">
+                <input type="submit" class="btn btn-primary" value="Add Doctor">
+            </div>
+    </div>
+    </form>
+</div>
+
+
+</div>
+
+{% endblock %}

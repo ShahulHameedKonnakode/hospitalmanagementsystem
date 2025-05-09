@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+</head>
+<body>
+    {% include 'base.html' %} 
+    {% load crispy_forms_tags %}   
+    <div class="container-fluid text-bg-success mt-2 p-2">
+        <h1 class="text-center">Contact Us</h1>
+       </div>
+
+       <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card mt-4">
+                    <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Contact us.
+                    </div>
+                    <div class="card-body">
+                       
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    {{form|crispy}}
+                                    <button type="submit" class="btn btn-success">SUBMIT</button>
+                                </form>
+                            
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <div class="card bg-light mb-3 mt-4">
+                    <div class="card-header bg-primary-subtle text-uppercase"><i class="fa fa-home"></i> Address</div>
+                    <div class="card-body">
+                        <p>MATERIAL PRO</p>
+                        <p>75008 Calicut</p>
+                        <p>Kerala, India</p>
+                        <p>Email : info@fah.com</p>
+                        <p>Tel. 0123456789</p>
+    
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

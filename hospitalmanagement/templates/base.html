@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static '/css/style.css' %}" rel="stylesheet">
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg border-bottom border-body"  data-bs-theme="dark">
+        <div class="container">
+          <a class="navbar-brand fw-bolder" href="{% url 'home' %}">MATERIAL PRO</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="d-flex justify-content-start pe-5" id="navbarNavDropdown">
+            <ul class="navbar-nav ">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'department' %}">Departments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'doctors' %}">Doctors</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{% url 'booking_patient' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Booking
+                </a>
+                <ul class="dropdown-menu mt-3" style="background-color: #00455e;">
+                  <li><a class="dropdown-item" href="{% url 'booking_patient' %}">Emergency</a></li>
+                  <li><a class="dropdown-item" href="{% url 'booking_patient' %}">Out Patient</a></li>
+                  <li><a class="dropdown-item" href="{% url 'booking_patient' %}">Appointment</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <a class="btn btn-primary me-5" href="{% url 'logins' %}">Login</a>
+      </nav>
+
+
+      <section class="fixed-bottom">
+        <footer class="pt-2 pb-2 text-white" style="background-color: #00455e;" data-bs-theme="dark">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-12 col-md-8">
+                <h5>Emergency Contact Number: 0123456789</h5>
+              </div>
+              <div class="col-12 col-md-4 mt-4 mt-md-0 text-center text-md-end">
+                © 2025 MATERIAL PRO. All Rights Reserved
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>  
+    
+</body>
+</html>

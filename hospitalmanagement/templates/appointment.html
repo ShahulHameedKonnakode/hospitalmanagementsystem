@@ -1,0 +1,84 @@
+{% extends 'doctor_home.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container my-3 pb-5">
+
+
+    <div class="col">
+
+        <table class="table table-striped">
+            <thead class="table table-dark">
+                <th>SL.No.</th>
+                <th>Patient Name</th>
+                <th>Booked Doctor</th>
+                <th>Booked Date</th>
+                <th>Booked On</th>
+                <th>Prescriptions</th>
+            </thead>
+            <tbody>
+                {% for i in appointments %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.p_name}}</td>
+                    <td>{{i.doc_id }}</td>
+                    <td>{{i.booking_date}}</td>
+                    <td>{{i.booked_on}}</td>
+                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Prescription</button>
+
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Prescriptions</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{% url 'prescription' %}" method="POST">
+                                            {% csrf_token %}
+                                            <div class="mb-3">
+                                                <label for="patient_name" class="col-form-label">Patient:</label>
+                                                <input type="text" class="form-control" id="patient_name"
+                                                    name="patient_name" value="{{i.p_name}}" readonly>
+                                                <!-- Hidden field for patient ID -->
+                                                <input type="hidden" name="patient_id" value="{{i.id}}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="prescription_text"
+                                                    class="col-form-label">Prescriptions:</label>
+                                                <textarea class="form-control" id="prescription_text"
+                                                    name="prescription"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="doctor_name" class="col-form-label">Prescribed By:</label>
+                                                <input class="form-control" id="doctor_name" value="{{i.doc_id}}"
+                                                    name="doctor_name" readonly>
+                                                <!-- Hidden field for doctor ID -->
+                                                <input type="hidden" name="doc_id" value="{{i.doc_id.id}}">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save
+                                                    Prescriptions</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+
+
+    </div>
+</div>
+
+{% endblock %}

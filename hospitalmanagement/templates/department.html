@@ -1,0 +1,28 @@
+
+    {% extends 'admin_home.html' %}
+    {% load static %}
+    {% block content %}
+   <div class="container-fluid mt-2 p-2">
+    <h5 class="display-5">Our Departments</h5>
+    <hr>
+   </div>
+  
+   <div class="container my-3 pb-5">
+    
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for d in dep %}
+        <div class="col">
+          <div class="card">
+            <img src={{d.dep_img.url}} class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ d.dep_name }}</h5>
+              <p class="card-text">{{ d.dep_description }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+</div>
+
+</div>
+{% endblock %}
+
