@@ -167,6 +167,13 @@ def doctors(request):
     }  
      return render(request, 'doctors.html',doct)
 
+def doctors_visitors (request):  
+
+     doct={
+        'doc':Doctors.objects.all()
+    }  
+     return render(request, 'doctors_visitors.html',doct)
+
 def contact(request):
 
     if request.method== "POST":
@@ -189,6 +196,13 @@ def department(request):
         'dep':Department.objects.all()
     }
     return render(request,'department.html',dept)
+
+def department_visitors(request):
+
+    dept={
+        'dep':Department.objects.all()
+    }
+    return render(request,'department_visitors.html',dept)
 
 
 def confirmation(request):
